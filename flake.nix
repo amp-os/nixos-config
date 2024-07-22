@@ -33,7 +33,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.zyllo = import ./home-manager/home.nix;
-            };
+           };
           }
         ];
       };

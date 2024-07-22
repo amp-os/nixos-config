@@ -5,7 +5,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/razer-15-nvidia.nix
-      ../../modules/wm/gnome.nix
     ];
 
   # Bootloader.
@@ -48,8 +47,8 @@
   services = {
     xserver.enable = true;
     # Set default wm
-    displayManager.sddm.enable = lib.mkDefault true;
-    desktopManager.plasma6.enable = lib.mkDefault true;
+     displayManager.sddm.enable = lib.mkDefault true;
+     desktopManager.plasma6.enable = lib.mkDefault true;
   };
 
   # Configure keymap in X11
