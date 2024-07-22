@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/razer-15-nvidia.nix
+      ../../modules/wm/gnome.nix
     ];
 
   # Bootloader.
