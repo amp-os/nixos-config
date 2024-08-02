@@ -15,19 +15,19 @@
   let
     systemSettings = {
       system = "x86_64-linux";
-      host = "porcupine";
+      host = "stingray";
       timeZone = "America/Los_Angeles";
     };
   in {
     nixosConfigurations = {
-      porcupine = nixpkgs.lib.nixosSystem {
+      ${systemSettings.host} = nixpkgs.lib.nixosSystem {
         system = systemSettings.system;
         specialArgs = {
           inherit inputs;
           inherit systemSettings;
         };
         modules = [
-          ./nixos/hosts/porcupine/configuration.nix
+          ./nixos/hosts/${systemSettings.host}/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
