@@ -1,8 +1,8 @@
-{config, pkgs, ...}:
+{config, pkgs, systemSettings, ...}:
 {
     programs.git = {
     enable = true;
-    userName = "";
-    userEmail = "";
+    userName = systemSettings.git.userName;
+    userEmail = systemSettings.git.userEmail;
   };
 }
