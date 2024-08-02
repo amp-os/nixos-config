@@ -13,26 +13,25 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
-    systemSettings = {
-      system = "x86_64-linux";
-      host = "porcupine";
-      timeZone = "America/Los_Angeles";
-    };
+    systemSettings = import ./settings.nix;
   in {
     nixosConfigurations = {
-      porcupine = nixpkgs.lib.nixosSystem {
+      ${systemSettings.host} = nixpkgs.lib.nixosSystem {
         system = systemSettings.system;
         specialArgs = {
           inherit inputs;
           inherit systemSettings;
         };
         modules = [
-          ./nixos/hosts/porcupine/configuration.nix
+          ./nixos/hosts/${systemSettings.host}/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               users.zyllo = import ./home-manager/home.nix;
+              extraSpecialArgs = {
+                inherit systemSettings;
+              };
            };
           }
         ];

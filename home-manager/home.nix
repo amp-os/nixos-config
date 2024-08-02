@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, systemSettings, ... }:
 
 {
   imports = [
     ./modules/git.nix
-    ./modules/wm/gnome.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -23,9 +22,9 @@
   # environment.
   home.packages = with pkgs; [
     neofetch
-    kdePackages.kate
-    st
+    vscode
     dmenu-wayland
+    bitwarden
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
