@@ -13,11 +13,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
-    systemSettings = {
-      system = "x86_64-linux";
-      host = "stingray";
-      timeZone = "America/Los_Angeles";
-    };
+    systemSettings = import ./settings.nix;
   in {
     nixosConfigurations = {
       ${systemSettings.host} = nixpkgs.lib.nixosSystem {
@@ -33,6 +29,9 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.zyllo = import ./home-manager/home.nix;
+              extraSpecialArgs = {
+                inherit systemSettings;
+              };
            };
           }
         ];
