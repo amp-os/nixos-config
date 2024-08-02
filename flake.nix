@@ -23,7 +23,8 @@
           inherit systemSettings;
         };
         modules = [
-          ./nixos/hosts/${systemSettings.host}/configuration.nix
+          ./nixos/configuration.nix # Default system config
+          ./nixos/hosts/${systemSettings.host}/configuration.nix # Per host config
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
@@ -32,7 +33,7 @@
               extraSpecialArgs = {
                 inherit systemSettings;
               };
-           };
+            };
           }
         ];
       };
