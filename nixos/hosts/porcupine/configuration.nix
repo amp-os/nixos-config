@@ -46,9 +46,11 @@
   # You can disable this if you're only using the Wayland session.
   services = {
     xserver.enable = true;
-    # Set default wm
-     displayManager.sddm.enable = lib.mkDefault true;
-     desktopManager.plasma6.enable = lib.mkDefault true;
+    # Set wm
+    xserver.displayManager.gdm.enable = false;
+    xserver.desktopManager.gnome.enable = false;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
   };
 
   # Configure keymap in X11
