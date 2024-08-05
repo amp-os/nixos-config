@@ -1,9 +1,10 @@
-{ config, pkgs, lib, systemSettings, ... }:
+{ config, pkgs, lib, systemSettings, lanzaboote, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/secureboot.nix
     ];
 
   networking.hostName = "stingray"; # Define your hostname.
