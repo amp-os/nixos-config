@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/secureboot.nix
+      ../../modules/work.nix
     ];
 
   networking.hostName = "stingray"; # Define your hostname.
