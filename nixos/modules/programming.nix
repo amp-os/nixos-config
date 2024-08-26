@@ -1,13 +1,10 @@
 { pkgs, lib, ... }:
 
 {
-  imports =
-    [
-      ./programming.nix
-    ];
-
-
+  
   environment.systemPackages = with pkgs; [
-    slack
+    python3
+    vscode
+    git
     ];
 }
