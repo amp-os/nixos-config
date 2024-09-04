@@ -6,19 +6,11 @@
       ./hardware-configuration.nix
       ../../modules/secureboot.nix
       ../../modules/work.nix
+      ../../modules/plasma.nix
     ];
 
   networking.hostName = "stingray"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver = {
-    enable = true;
-    # Set default wm
-    displayManager.gdm.enable = lib.mkDefault true;
-    desktopManager.gnome.enable = lib.mkDefault true;
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {

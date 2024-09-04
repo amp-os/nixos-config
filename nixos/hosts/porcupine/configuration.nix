@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/razer-15-nvidia.nix
+      ../../modules/plasma.nix
     ];
 
   # Bootloader.
@@ -40,17 +41,6 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services = {
-    xserver.enable = true;
-    # Set wm
-    xserver.displayManager.gdm.enable = false;
-    xserver.desktopManager.gnome.enable = false;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
   };
 
   # Configure keymap in X11
